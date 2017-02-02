@@ -13,8 +13,7 @@ class TicTacToe {
         if (!this.getFieldValue(rowIndex, columnIndex)) {
             this.desk[rowIndex][columnIndex] = this.currentPlayer;
 
-            if (!this.isFinished())
-                this.currentPlayer = this.currentPlayer == 'x'? 'o' : 'x';
+            this.currentPlayer = this.currentPlayer == 'x'? 'o' : 'x';
         }
     }
 
@@ -26,7 +25,7 @@ class TicTacToe {
         let player;
         let symbolsInARow = 0;
 
-        // horizontal
+        // vertical
         for (let i = 0; i < this.dimension; i++) {
             player = this.getFieldValue(i,0);
             for (let j = 0; j < this.dimension; j++)
@@ -37,7 +36,7 @@ class TicTacToe {
             symbolsInARow = 0;
         }
 
-        // vertical
+        // horizontal
         for (let j = 0; j < this.dimension; j++) {
             player = this.getFieldValue(0,j);
             for (let i = 0; i < this.dimension; i++)
