@@ -1,6 +1,6 @@
 class TicTacToe {
     constructor() {
-        this.currentPlayer = 'x';
+        this.currentPlayer = 'o';
         this.desk = [[],[],[]];
         this.dimension = 3;
     }
@@ -66,6 +66,7 @@ class TicTacToe {
                 symbolsInARow++;
             if (symbolsInARow == this.dimension)
                 return player;
+            j++;
         }
 
         return null;
