@@ -1,6 +1,6 @@
 class TicTacToe {
     constructor() {
-        this.currentPlayer = 'o';
+        this.currentPlayer = 'x';
         this.desk = [[],[],[]];
         this.dimension = 3;
     }
@@ -10,10 +10,12 @@ class TicTacToe {
     }
 
     nextTurn(rowIndex, columnIndex) {
-        this.desk[rowIndex][columnIndex] = this.currentPlayer;
+        if (!this.getFieldValue(rowIndex, columnIndex)) {
+            this.desk[rowIndex][columnIndex] = this.currentPlayer;
 
-        if (!this.isFinished())
-            this.currentPlayer = this.currentPlayer == 'x'? 'o' : 'x';
+            if (!this.isFinished())
+                this.currentPlayer = this.currentPlayer == 'x'? 'o' : 'x';
+        }
     }
 
     isFinished() {
