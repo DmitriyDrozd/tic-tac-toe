@@ -16,11 +16,11 @@ class TicTacToe {
     }
 
     isFinished() {
-
+        return this.getWinner() || this.isDraw();
     }
 
     getWinner() {
-
+        return null;
     }
 
     noMoreTurns() {
@@ -33,11 +33,14 @@ class TicTacToe {
     }
 
     isDraw() {
-        return this.noMoreTurns() && !this.getWinner();
+        if (this.getWinner())
+            return false;
+        else if (this.noMoreTurns())
+            return true;
     }
 
     getFieldValue(rowIndex, colIndex) {
-        return this.desk[rowIndex][colIndex];
+        return this.desk[rowIndex][colIndex]? this.desk[rowIndex][colIndex] : null;
     }
 }
 
